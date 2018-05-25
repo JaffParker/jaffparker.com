@@ -1,3 +1,22 @@
 {
-  "presets": ["es2015", "stage-2", "flow", "react"]
+  "plugins": [
+    "transform-object-rest-spread",
+    "transform-class-properties"
+  ],
+  "presets": [
+    [
+      "env",
+      {
+        "targets": {
+          "browsers": "> 1%"
+        },
+        "modules": false,
+        "loose": true,
+        "useBuiltIns": true
+      }
+    ],
+    "react",
+    "flow"
+  ],
+  "retainLines": true
 }

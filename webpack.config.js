@@ -1,64 +1,104 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin')
-const ExtractTextPlugin = require('extract-text-webpack-plugin')
+const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+const history = require('connect-history-api-fallback')
+const convert = require('koa-connect')
 const webpack = require('webpack')
 
-process.env.NODE_ENV = 'development'
+const environment = process.env.NODE_ENV || 'development'
 
 module.exports = {
-  entry: ['babel-polyfill', 'whatwg-fetch', `${__dirname}/src/index.js`],
+  mode: environment,
+  entry: [
+    'babel-polyfill',
+    'bootstrap',
+    // 'bootstrap/scss/bootstrap.scss',
+    `${__dirname}/src/index.js`,
+  ],
   output: {
-    path: `${__dirname}/public`,
-    filename: 'app.js',
-    publicPath: `/`
+    path: `${__dirname}/dist`,
+    filename: 'app-[hash].js',
+    publicPath: '/',
   },
   devtool: 'source-map',
   resolve: {
-    extensions: ['.js', '.jsx', '.css']
+    extensions: ['.js', '.jsx', '.css', '.scss'],
   },
   module: {
     rules: [
       {
-        test: /\.jsx?/,
+        test: /\.jsx?(\.flow)?/,
         exclude: /node_modules/,
-        use: 'babel-loader'
+        use: 'babel-loader',
+      },
+      {
+        test: /\.css$/,
+        use: [MiniCssExtractPlugin.loader, 'css-loader', 'resolve-url-loader'],
       },
       {
         test: /\.scss$/,
-        use: ExtractTextPlugin.extract('css-loader!resolve-url-loader!sass-loader')
+        use: [MiniCssExtractPlugin.loader, 'css-loader', 'resolve-url-loader', 'sass-loader'],
       },
       {
-        test: /\.html$/,
-        loader: 'html-loader'
-      },
-      {
-        test: /\.(ttf|eot|ico|json|svg)/,
-        use: [{
-          loader: 'file-loader',
-          options: {
-            name: '[name].[ext]',
-            useRelativePath: true
+        test: /.(jpg|png)/,
+        use: 'production' === environment
+          ? {
+            loader: 'file-loader',
+            options: {
+              name: '[path][name].[ext]?[hash]',
+              emitFile: false,
+            },
           }
-        }]
+          : 'url-loader',
       },
-      { test: /\.woff(2)?(\?v=[0-9]\.[0-9]\.[0-9])?$/, loader: "url-loader?limit=10000&mimetype=application/font-woff" }
-    ]
+      {
+        test: /\.(ico|svg|ttf|eot|jpg)(\?v=[0-9]\.[0-9]\.[0-9])?/,
+        use: [
+          {
+            loader: 'url-loader',
+            options: {
+              name: '[name]_[hash].[ext]',
+            },
+          },
+        ],
+      },
+      {
+        test: /\.woff(2)?(\?v=[0-9]\.[0-9]\.[0-9])?$/,
+        use: [
+          {
+            loader: 'url-loader',
+            options: {
+              mimetype: 'application/font-woff',
+            },
+          },
+        ],
+      },
+    ],
   },
   plugins: [
     new HtmlWebpackPlugin({
       template: `${__dirname}/src/index.html`,
-      inject: 'body'
+      inject: 'body',
     }),
     new webpack.ProvidePlugin({
       $: 'jquery',
       jQuery: 'jquery',
       'window.jQuery': 'jquery',
-      Popper: ['popper.js', 'default']
+      Popper: ['popper.js', 'default'],
     }),
-    new webpack.EnvironmentPlugin([
-      'NODE_ENV'
-    ]),
-    new ExtractTextPlugin('dist/styles/main.css', {
-      allChunks: true
-    })
-  ]
+    new webpack.EnvironmentPlugin(['NODE_ENV']),
+    new MiniCssExtractPlugin({
+      filename: '[name].css',
+      chunkFilename: '[id].css',
+    }),
+  ],
 }
+
+if ('development' === environment)
+  module.exports.serve = {
+    contentBase: `${__dirname}/dist`,
+    compress: true,
+    historyApiFallback: true,
+    add: app => {
+      app.use(convert(history()))
+    },
+  }

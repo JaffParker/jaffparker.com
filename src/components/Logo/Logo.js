@@ -1,13 +1,9 @@
+//@flow
 import React from 'react'
-import Navbar from '../Navbar/Navbar'
-import NavbarBrand from '../Navbar/NavbarBrand'
+import './Logo.scss'
 
-const Logo = () => (
+export const Logo = () =>
   <div className="Logo">
-    <Navbar>
-      <NavbarBrand center={true}>Jaff Parker</NavbarBrand>
-    </Navbar>
+    <span className="text-dark">Jaff</span>
+    <span className="text-light bg-dark">Parker</span>
   </div>
-)
-
-export default Logo

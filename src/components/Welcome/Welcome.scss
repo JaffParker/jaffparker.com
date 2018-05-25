@@ -1,0 +1,9 @@
+.Welcome {
+  height: 100%;
+  width: 100%;
+
+  & > div {
+    margin: 10px auto;
+    width: 30em;
+  }
+}

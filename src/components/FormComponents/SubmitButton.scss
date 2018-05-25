@@ -1,0 +1,14 @@
+.SubmitButton {
+  color: #343a40;
+  background-color: #f8f9fa;
+  border: 0.2em solid #343a40;
+  border-radius: 0;
+
+  &:hover {
+    color: #f8f9fa;
+    background-color: #343a40;
+  }
+  &:focus {
+    box-shadow: none;
+  }
+}

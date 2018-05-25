@@ -1,4 +1,0 @@
-// @flow
-import {} from './types'
-
-
