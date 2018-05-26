@@ -1,43 +1,7 @@
-@import "~bootstrap/scss/bootstrap.scss";
-
 .App {
-  @extend .text-dark;
+  composes: text-dark from global;
+}
 
-  .VerticalSlide {
-    width: calc(100vw - (100vw - 100%)) !important;
-  }
-
-  .btn:focus {
-    box-shadow: none;
-  }
-
-  .equalHeight {
-    height: 15em;
-  }
-
-  .me {
-    border-radius: 50%;
-    height: 15em;
-  }
-
-  .next {
-    @extend .text-dark;
-
-    position: fixed;
-    bottom: 20px;
-    left: 0;
-    right: 0;
-    width: 7em;
-
-    button {
-      margin: 0 auto;
-      display: inline-block;
-      border-radius: 0;
-
-      &:hover {
-        text-decoration: none;
-        background-color: #f8f9fa;
-      }
-    }
-  }
+:global(.btn:focus) {
+  box-shadow: none;
 }

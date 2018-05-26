@@ -1,3 +1,61 @@
+._3Jj_yn_8lN04YC0ZfXI3-x {
+}
+
+.btn:focus {
+  box-shadow: none;
+}
+._38wHjPwZlDoJPr9W-xySh {
+  font-size: 4em;
+}
+
+._38wHjPwZlDoJPr9W-xySh span {
+  display: inline-block;
+  padding: 0 0.3em;
+}
+.rb9-ruaSR2oLWn0tZaUlh {
+  height: 100%;
+  width: 100%;
+}
+
+.rb9-ruaSR2oLWn0tZaUlh > div {
+  margin: 10px auto;
+  width: 30em;
+}
+
+.HfjD9IwsRPQRBgnfZjUjA {
+  border-radius: 50%;
+  height: 15em;
+}
+._72NKHn37nPsKq6oV25qxU {
+}
+
+.wZWgMYez0YbSAG57JPRm9 {
+  height: 100vh;
+  width: calc(100vw - (100vw - 100%));
+  position: relative;
+}
+
+.BiR8Xu1Dms_oklz7VJaK_ {
+  width: 100%;
+  position: absolute;
+  text-align: center;
+  bottom: 20px;
+}
+._2GQRpL1xqO72qK6fv5AqTw {
+  margin: 10px auto;
+  text-align: center;
+  height: 130px;
+  width: 130px;
+  border: 1px solid #343a40;
+  border-radius: 50%;
+}
+._2KHNXejg9_YOGoVnuTYpfh {
+  font-size: 1.1em;
+  line-height: 1.7em;
+  text-align: left;
+  width: 30em;
+  margin: 0 auto;
+}
 /*!
  * Bootstrap v4.1.1 (https://getbootstrap.com/)
  * Copyright 2011-2018 The Bootstrap Authors
@@ -9287,18 +9345,12 @@ a.text-light:focus {
   color: #dae0e5 !important;
 }
 
-.text-dark,
-.App,
-.App .next {
+.text-dark {
   color: #343a40 !important;
 }
 
 a.text-dark:hover,
-a.App:hover,
-.App a.next:hover,
-a.text-dark:focus,
-a.App:focus,
-.App a.next:focus {
+a.text-dark:focus {
   color: #1d2124 !important;
 }
 
@@ -9430,86 +9482,6 @@ a.App:focus,
     color: inherit;
     border-color: #dee2e6;
   }
-}
-
-.App .VerticalSlide {
-  width: calc(100vw - (100vw - 100%)) !important;
-}
-
-.App .btn:focus {
-  box-shadow: none;
-}
-
-.App .equalHeight {
-  height: 15em;
-}
-
-.App .me {
-  border-radius: 50%;
-  height: 15em;
-}
-
-.App .next {
-  position: fixed;
-  bottom: 20px;
-  left: 0;
-  right: 0;
-  width: 7em;
-}
-
-.App .next button {
-  margin: 0 auto;
-  display: inline-block;
-  border-radius: 0;
-}
-
-.App .next button:hover {
-  text-decoration: none;
-  background-color: #f8f9fa;
-}
-.Logo {
-  font-size: 4em;
-}
-
-.Logo span {
-  display: inline-block;
-  padding: 0 0.3em;
-}
-.Welcome {
-  height: 100%;
-  width: 100%;
-}
-
-.Welcome > div {
-  margin: 10px auto;
-  width: 30em;
-}
-.Home > div.Welcome-container {
-  height: 100vh;
-  width: calc(100vw - (100vw - 100%));
-  position: relative;
-}
-
-.Home > div.Welcome-container .scrollDown {
-  width: 100%;
-  position: absolute;
-  text-align: center;
-  bottom: 20px;
-}
-.IconCard .icon {
-  margin: 10px auto;
-  text-align: center;
-  height: 130px;
-  width: 130px;
-  border: 1px solid #343a40;
-  border-radius: 50%;
-}
-.ContactForm {
-  font-size: 1.1em;
-  line-height: 1.7em;
-  text-align: left;
-  width: 30em;
-  margin: 0 auto;
 }
 
 /*# sourceMappingURL=main.css.map*/

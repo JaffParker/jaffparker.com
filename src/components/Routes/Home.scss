@@ -1,18 +1,17 @@
 .Home {
-  & > div {
+  composes: mb-5 from global;
+}
 
-    &.Welcome-container {
-      height: 100vh;
-      width: calc(100vw - (100vw - 100%));
-  
-      position: relative;
-  
-      .scrollDown {
-        width: 100%;
-        position: absolute;
-        text-align: center;
-        bottom: 20px;
-      }
-    }
-  }
+.WelcomeContainer{
+  height: 100vh;
+  width: calc(100vw - (100vw - 100%));
+
+  position: relative;
+}
+
+.scrollDown {
+  width: 100%;
+  position: absolute;
+  text-align: center;
+  bottom: 20px;
 }

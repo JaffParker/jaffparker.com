@@ -1,10 +1,9 @@
-.IconCard {
-  .icon {
-    margin: 10px auto;
-    text-align: center;
-    height: 130px;
-    width: 130px;
-    border: 1px solid #343a40;
-    border-radius: 50%;
-  }
+.icon {
+  composes: d-flex flex-column justify-content-center align-items-center from global;
+  margin: 10px auto;
+  text-align: center;
+  height: 130px;
+  width: 130px;
+  border: 1px solid #343a40;
+  border-radius: 50%;
 }

@@ -12,7 +12,7 @@ module.exports = {
     'babel-polyfill',
     'bootstrap',
     // 'bootstrap/scss/bootstrap.scss',
-    `${__dirname}/src/index.js`,
+    `${__dirname}/src/index.jsx`,
   ],
   output: {
     path: `${__dirname}/dist`,
@@ -36,19 +36,28 @@ module.exports = {
       },
       {
         test: /\.scss$/,
+        include: /node_modules/,
         use: [MiniCssExtractPlugin.loader, 'css-loader', 'resolve-url-loader', 'sass-loader'],
       },
       {
+        test: /\.scss$/,
+        exclude: /node_modules/,
+        use: [MiniCssExtractPlugin.loader, {
+          loader: 'css-loader',
+          options: {
+            modules: true,
+          },
+        }, 'resolve-url-loader', 'sass-loader'],
+      },
+      {
         test: /.(jpg|png)/,
-        use: 'production' === environment
-          ? {
-            loader: 'file-loader',
-            options: {
-              name: '[path][name].[ext]?[hash]',
-              emitFile: false,
-            },
-          }
-          : 'url-loader',
+        use: {
+          loader: 'file-loader',
+          options: {
+            name: '[path][name].[ext]?[hash]',
+            emitFile: false,
+          },
+        },
       },
       {
         test: /\.(ico|svg|ttf|eot|jpg)(\?v=[0-9]\.[0-9]\.[0-9])?/,

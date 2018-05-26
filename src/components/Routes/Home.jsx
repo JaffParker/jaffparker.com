@@ -7,13 +7,14 @@ import faChevronDown from '@fortawesome/fontawesome-free-solid/faChevronDown'
 import {MyMissionBrief} from '../MyMission/MyMissionBrief'
 import {AboutMe} from '../AboutMe/AboutMe'
 import {ContactForm} from '../ContactForm/ContactForm'
+import styles from './Home.scss'
 
 export const Home = () =>
-  <div className="Home mb-5">
+  <div className={styles.Home}>
 
-    <div className="Welcome-container">
+    <div className={styles.WelcomeContainer}>
       <Welcome />
-      <div className="scrollDown">
+      <div className={styles.scrollDown}>
         Scroll for more<br />
         <Icon icon={faChevronDown} />
       </div>

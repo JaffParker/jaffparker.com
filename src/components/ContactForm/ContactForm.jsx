@@ -1,12 +1,11 @@
 //@flow
 import React from 'react'
-import './ContactForm.scss'
+import styles from './ContactForm.scss'
 import {Icon} from '../Other/Icon'
 import faEnvelope from '@fortawesome/fontawesome-free-solid/faEnvelope'
 import faGithub from '@fortawesome/fontawesome-free-brands/faGithub'
 import faTwitter from '@fortawesome/fontawesome-free-brands/faTwitter'
 import faLinkedin from '@fortawesome/fontawesome-free-brands/faLinkedin'
-import {Col} from 'reactstrap'
 
 const socialLinks = [
   {
@@ -32,7 +31,7 @@ const socialLinks = [
 ]
 
 export const ContactForm = () =>
-  <div className="ContactForm text-center">
+  <div className={styles.ContactForm}>
     <h1>Contact Me</h1>
     <ul className="nav justify-content-center">
       {socialLinks.map(contact =>
