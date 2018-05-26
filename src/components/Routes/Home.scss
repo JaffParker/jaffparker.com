@@ -3,11 +3,17 @@
 }
 
 .WelcomeContainer{
-  min-height: 100vh;
+  height: 100vh;
   max-width: calc(100vw - (100vw - 100%));
 
   position: relative;
 
+  @media not screen and (min-height: 740px) {
+    height: 100vh;
+  }
+  @media screen and (max-height: 740px) {
+    height: auto;
+  }
   @media not screen and (max-height: 280px) {
     padding-bottom: 70px;
   }

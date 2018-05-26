@@ -8,7 +8,7 @@
   font-size: 4em;
 }
 
-@media screen and (max-width: 380px) {
+@media screen and (max-width: 400px) {
   ._38wHjPwZlDoJPr9W-xySh {
     font-size: 16vw;
   }
@@ -42,9 +42,21 @@
 }
 
 .wZWgMYez0YbSAG57JPRm9 {
-  min-height: 100vh;
+  height: 100vh;
   max-width: calc(100vw - (100vw - 100%));
   position: relative;
+}
+
+@media not screen and (min-height: 740px) {
+  .wZWgMYez0YbSAG57JPRm9 {
+    height: 100vh;
+  }
+}
+
+@media screen and (max-height: 740px) {
+  .wZWgMYez0YbSAG57JPRm9 {
+    height: auto;
+  }
 }
 
 @media not screen and (max-height: 280px) {
