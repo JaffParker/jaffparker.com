@@ -1,5 +1,9 @@
 .Logo {
   font-size: 4em;
+
+  @media screen and (max-width: 380px) {
+    font-size: 16vw;
+  }
   
   span {
     display: inline-block;

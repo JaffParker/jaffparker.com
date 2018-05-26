@@ -3,10 +3,14 @@
 }
 
 .WelcomeContainer{
-  height: 100vh;
-  width: calc(100vw - (100vw - 100%));
+  min-height: 100vh;
+  max-width: calc(100vw - (100vw - 100%));
 
   position: relative;
+
+  @media not screen and (max-height: 280px) {
+    padding-bottom: 70px;
+  }
 }
 
 .scrollDown {
